@@ -12,6 +12,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
+    // users page that will use the UsersController
+        .when('/users', {
+            templateUrl: 'views/users.html',
+            controller: 'UsersController'
+        });
+
     $locationProvider.html5Mode(true);
 
 }]);
