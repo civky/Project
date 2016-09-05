@@ -1,14 +1,13 @@
 <h1>Users</h1>
 <p>{{ info }}</p>
-<a href="users/addUser" class="btn btn-primary">
-    Add new user
-</a>
+<a href="users/addUser" class="btn btn-primary">Add new user</a>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Username</th>
             <th>Password</th>
             <th>Email</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +15,7 @@
             <td>{{user.username}}</td>
             <td>{{user.password}}</td>
             <td>{{user.email}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteUser(user.id, $index)">Delete</button></td>
         </tr>
     </tbody>
 </table>

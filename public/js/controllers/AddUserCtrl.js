@@ -19,6 +19,7 @@ angular.module('AddUserCtrl', []).controller('AddUserController', ['$scope', 'Us
         // call function newUser in our UserService
         UserService.newUser(newUser);
 
+        // FIXME: Make the view change after the addition is "confirmed" (callback or something)
         // go to users view
         $location.path('users/')
     }

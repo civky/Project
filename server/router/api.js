@@ -37,3 +37,18 @@ router.post('/user', function(req,res,next){
         return next(ex);
     }
 });
+
+// DELETE user
+router.delete('/users/:id', function(req,res,next){
+    try{
+        models.User.destroy({where: {id: req.params.id} }).then(function () {
+            return models.User.findAll().then(function (user) {
+                res.json(user);
+            })
+        })
+    }
+    catch(ex){
+        console.error("Internal error:"+ex);
+        return next(ex);
+    }
+});

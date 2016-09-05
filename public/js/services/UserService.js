@@ -11,14 +11,13 @@ angular.module('UserService', []).factory('UserService', ['$http', '$location', 
         // call api to add a new user with userdata
         newUser : function(userData) {
             return $http.post('/api/user', userData);
-        }
-/*
+        },
 
-        // call to DELETE a nerd
+        // call to DELETE a user
         delete : function(id) {
-            return $http.delete('/api/nerds/' + id);
+            return $http.delete('/api/users/' + id);
         }
-*/
+
     }
 
 }]);
