@@ -1,6 +1,6 @@
 # CATI
 
-## Pre-requisites
+### Pre-requisites
 A mysql server running at localhost:3306 (I think).
 
 ## Installation
@@ -16,3 +16,5 @@ A mysql server running at localhost:3306 (I think).
 
 1. Solo subir código funcional.
 2. Para Backup podemos crear una carpeta
+
+The set up of the project was made following this [tutorial](https://scotch.io/tutorials/setting-up-a-mean-stack-single-page-application) (With MySql in stead of MongoDB)
