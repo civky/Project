@@ -1,6 +1,6 @@
 /**
  * does routing for angular.
- * tells angular which controller belongs to what view.
+ * tells angular which controller belongs to what view and on what route.
  */
 angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -16,6 +16,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/users', {
             templateUrl: 'views/users.html',
             controller: 'UsersController'
+        })
+
+    // add user view
+        .when('/users/addUser', {
+            templateUrl: 'views/addUser.html',
+            controller: 'AddUserController'
         });
 
     $locationProvider.html5Mode(true);
