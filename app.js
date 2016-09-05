@@ -4,14 +4,17 @@ var ip = require('ip');
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-
+var models = require('./server/models/index.js');
 var app = express();
 
-//Start Server
-var server = app.listen(config.port, function(){
-    var host = ip.address();
-    var port = server.address().port;
-    console.log('Server is listening on localhost', port);
+// Start Server
+// models.sequelize.sync() creates the tables if they don't exist
+models.sequelize.sync().then(function () {
+    var server = app.listen(config.serverPort, function(){
+        var host = ip.address();
+        var port = server.address().port;
+        console.log('Server is listening on localhost', port);
+    });
 });
 
 
