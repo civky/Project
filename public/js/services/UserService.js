@@ -1,4 +1,4 @@
-angular.module('UserService', []).factory('UserService', ['$http', function($http) {
+angular.module('UserService', []).factory('UserService', ['$http', '$location', function($http, $location) {
 
     return {
         // call to get all users
@@ -8,12 +8,11 @@ angular.module('UserService', []).factory('UserService', ['$http', function($htt
             })
         },
 
+        // call api to add a new user with userdata
+        newUser : function(userData) {
+            return $http.post('/api/user', userData);
+        }
 /*
-        // these will work when more API routes are defined on the Node side of things
-        // call to POST and create a new nerd
-        create : function(nerdData) {
-            return $http.post('/api/users', nerdData);
-        },
 
         // call to DELETE a nerd
         delete : function(id) {

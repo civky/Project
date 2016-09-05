@@ -1,2 +1,41 @@
 <h1>Add user</h1>
 <p>{{tagline}}</p>
+<form name="addUserForm" class="form-horizontal" ng-submit="submit()">
+    <fieldset>
+        <legend></legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" ng-model="username" id="username" name="username" placeholder="User name" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-3">
+                <input type="password" class="form-control" ng-model="password" id="password" name="password" placeholder="Password" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" ng-model="email" id="email" name="email" placeholder="Email" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Permission</label>
+            <div class="col-lg-3">
+                <select class="form-control" ng-model="permission" id="permission" name="permission" ng-required="true">
+                    <option value="ADMIN" >ADMIN</option>
+                    <option value="INTERVIEWER">INTERVIEWER</option>
+                    <option value="RESPONDENT">RESPONDENT</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="addUserForm.$invalid">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
