@@ -1,11 +1,9 @@
 angular.module('UserService', []).factory('UserService', ['$http', '$location', function($http, $location) {
-
+    var savedUser = {};
     return {
         // call to get all users
         getAll : function() {
-            return $http.get('/api/users/all').then(function(response){
-                return response;
-            })
+            return $http.get('/api/users/all');
         },
 
         // call api to add a new user with userdata

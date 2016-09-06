@@ -22,6 +22,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/users/addUser', {
             templateUrl: 'views/addUser.html',
             controller: 'AddUserController'
+        })
+        .when('/users/edit/:id', {
+            templateUrl: 'views/editUser.html',
+            controller: 'EditUserController'
         });
 
     $locationProvider.html5Mode(true);

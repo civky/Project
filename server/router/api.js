@@ -30,6 +30,7 @@ router.post('/user', function(req,res,next){
                 permission: req.body.permission,
                 UserId: result.id
             });
+            res.json(result);
         });
     }
     catch(ex){
