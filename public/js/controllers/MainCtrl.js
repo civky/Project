@@ -3,7 +3,6 @@
  */
 
 angular.module('MainCtrl', []).controller('MainController', function($scope) {
-
-    $scope.tagline = 'This message comes from the controller';
+    $scope.tagline = 'This message comes from the main controller';
 
 });

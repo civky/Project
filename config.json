@@ -1,5 +1,7 @@
 {
   "serverPort": 3000,
+  "DBPort": 3306,
+  "host": "localhost",
   "schema": "cati",
   "DBUser": "root",
   "DBPassword": ""
