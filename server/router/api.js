@@ -18,6 +18,22 @@ router.get('/users/all', function(req, res, next) {
     }
 });
 
+// GET one user from id
+router.get('/users/:id', function(req, res, next) {
+    try {
+        models.User.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (user) {
+            res.json(user);
+        });
+    } catch (ex) {
+        console.error("Internal error:" + ex);
+        return next(ex);
+    }
+});
+
 //POST create user
 router.post('/user', function(req,res,next){
     try{
@@ -39,7 +55,26 @@ router.post('/user', function(req,res,next){
     }
 });
 
-// DELETE user
+// PUT to edit a user from id with a user object as body
+router.put('/users/:id', function(req,res,next){
+    try{
+        models.User.findOne({ where: {id:req.params.id} }).then(function (user) {
+            user.updateAttributes({
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email
+            }).then(function (result) {
+                res.json(result);
+            });
+        });
+    }
+    catch(ex){
+        console.error("Internal error:"+ex);
+        return next(ex);
+    }
+});
+
+// DELETE user from id
 router.delete('/users/:id', function(req,res,next){
     try{
         models.User.destroy({where: {id: req.params.id} }).then(function () {

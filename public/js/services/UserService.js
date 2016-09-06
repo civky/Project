@@ -14,8 +14,16 @@ angular.module('UserService', []).factory('UserService', ['$http', '$location', 
         // call to DELETE a user
         delete : function(id) {
             return $http.delete('/api/users/' + id);
-        }
+        },
 
+        // call to GET one user from id
+        getUser : function (id) {
+            return $http.get('api/users/' + id);
+        },
+        // call to PUT one user
+        editUser : function (userData) {
+            return $http.put('api/users/' + userData.id, userData);
+        }
     }
 
 }]);
