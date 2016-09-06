@@ -19,7 +19,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         })
 
     // add user view
-        .when('/users/addUser', {
+        .when('/users/add', {
             templateUrl: 'views/addUser.html',
             controller: 'AddUserController'
         })
