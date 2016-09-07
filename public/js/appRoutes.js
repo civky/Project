@@ -72,7 +72,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
     $httpProvider.interceptors.push(function($q, $location, $rootScope) {
         return {
             response: function(response) {
-                $rootScope.isLoggedIn = true;
                 return response;
             },
             responseError: function(response) {

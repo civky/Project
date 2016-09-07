@@ -1,4 +1,4 @@
-angular.module('LoginCtrl', []).controller('LoginController',['$scope', '$rootScope' , '$http',function($scope, $rootScope, $http) {
+angular.module('LoginCtrl', []).controller('LoginController',['$scope', '$rootScope' , '$http', '$location',function($scope, $rootScope, $http, $location) {
     $scope.tagline = 'This message comes from the login controller';
     $scope.user = {
         email: "",
@@ -9,6 +9,7 @@ angular.module('LoginCtrl', []).controller('LoginController',['$scope', '$rootSc
         $http.post('login/', $scope.user).success(function(data){
             console.log(data);
             $rootScope.isLoggedIn = true;
+            $location.path('/')
         })
             .error(function(data){
                 console.log(data);
