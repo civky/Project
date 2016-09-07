@@ -33,7 +33,7 @@ module.exports = function(passport) {
     // TODO: Do this using the model and serealize in stead of sql query.
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        connection.query("select * from Usuario where id = "+id,function(err,rows){
+        connection.query("select * from User where id = "+id,function(err,rows){
             done(err, rows[0]);
         });
     });

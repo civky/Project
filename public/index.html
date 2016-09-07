@@ -29,11 +29,9 @@
 </head>
 <body ng-app="sampleApp" ng-controller="MainController">
 
-<div ng-show="!isLoggedIn" ng-controller="LoginController" ng-include="'views/login.html'"></div>
-<div class="container" ng-show="isLoggedIn">
-
+<div class="container">
     <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" ng-show="isLoggedIn">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">CATI</a>
         </div>
@@ -42,7 +40,11 @@
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/users">Users</a></li>
+
         </ul>
+        <form class="navbar-form navbar-right">
+            <button class="btn btn-danger" ng-click="logout()" ng-show="isLoggedIn">Log out</button>
+        </form>
     </nav>
 
     <!-- ANGULAR DYNAMIC CONTENT -->

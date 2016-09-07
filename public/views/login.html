@@ -1,7 +1,6 @@
 <div class="col-sm-6">
-<p>{{tagline}}</p>
     <h1><span class="fa fa-sign-in"></span> Login</h1>
-
+    <p>You need to log in for this permission</p>
     <!-- TODO: show any messages that come back with authentication -->
 
     <!-- LOGIN FORM -->
@@ -14,9 +13,9 @@
             <label>Password</label>
             <input type="password" ng-model="user.password" class="form-control" name="password">
         </div>
-        <div class="col-lg-10 col-lg-offset-2">
-            <button ng-click="login()" class="btn btn-default">Log in with existing acc</button>
-            <button ng-click="signup()" class="btn btn-warning btn-lg">Sign up</button>
+        <div class="text-right">
+            <button ng-click="login()" class="btn btn-primary">Log in</button>
+            <button ng-click="signup()" class="btn btn-warning">Create new user</button>
         </div>
 
     </form>
