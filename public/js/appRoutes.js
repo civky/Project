@@ -64,9 +64,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
                 loggedin: checkLoggedin
             }
         })
+    // edit user view
         .when('/users/edit/:id', {
             templateUrl: 'views/editUser.html',
             controller: 'EditUserController',
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        })
+        .when('/interview', {
+            templateUrl: 'views/interview.html',
+            controller: 'InterviewController',
             resolve: {
                 loggedin: checkLoggedin
             }
