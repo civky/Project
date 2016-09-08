@@ -35,7 +35,7 @@ router.get('/users/:id', function(req, res, next) {
 });
 
 //POST create user
-router.post('/user', function(req,res,next){
+router.post('/user', isLoggedIn, function(req,res,next){
     try{
         models.User.create({
             username: req.body.username,
@@ -56,7 +56,7 @@ router.post('/user', function(req,res,next){
 });
 
 // PUT to edit a user from id with a user object as body
-router.put('/users/:id', function(req,res,next){
+router.put('/users/:id', isLoggedIn, function(req,res,next){
     try{
         models.User.findOne({ where: {id:req.params.id} }).then(function (user) {
             user.updateAttributes({
@@ -75,7 +75,7 @@ router.put('/users/:id', function(req,res,next){
 });
 
 // DELETE user from id
-router.delete('/users/:id', function(req,res,next){
+router.delete('/users/:id', isLoggedIn, function(req,res,next){
     try{
         models.User.destroy({where: {id: req.params.id} }).then(function () {
             return models.User.findAll().then(function (user) {
@@ -89,3 +89,13 @@ router.delete('/users/:id', function(req,res,next){
     }
 });
 
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()){
+        return next();
+    }
+    else{
+        res.send(401);
+    }
+}

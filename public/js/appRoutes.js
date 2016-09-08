@@ -34,9 +34,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
         .when('/', {
             templateUrl: 'views/home.html',
             controller: 'MainController',
+            resolve: {
+                loggedin: checkLoggedin
+            }
         })
         .when('/login', {
             templateUrl: 'views/login.html',
+            controller: 'LoginController'
+        })
+        .when('/signup', {
+            templateUrl: 'views/signup.html',
             controller: 'LoginController'
         })
 
@@ -44,6 +51,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
         .when('/users', {
             templateUrl: 'views/users.html',
             controller: 'UsersController',
+            resolve: {
+                loggedin: checkLoggedin
+            }
         })
 
     // add user view
