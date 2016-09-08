@@ -70,7 +70,7 @@ module.exports = function(passport) {
                     newUserMysql.password = password; // FIXME: use the generateHash function in our user model
 
                     models.User.create({
-                        username: "asdf",
+                        username: req.body.username,
                         password: password,
                         email: email
                     }).then(function (result) {
