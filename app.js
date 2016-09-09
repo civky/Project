@@ -42,6 +42,9 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true }));
 
+var fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 require('./server/router/routes')(app, passport)
 require('./server/passport/passport')(passport); // pass passport for configuration
 

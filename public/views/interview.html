@@ -1,3 +1,10 @@
 <h1>Interviews</h1>
 <p>Will allow uploading of .csv files</p>
-<p>{{tagline}}</p>
+<form ref='uploadForm'
+      id='uploadForm'
+      action='/upload'
+      method='post'
+      encType="multipart/form-data">
+    <input type="file" name="sampleFile" />
+    <input type='submit' value='Upload!' />
+</form>
