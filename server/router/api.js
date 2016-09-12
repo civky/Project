@@ -10,7 +10,7 @@ module.exports = router;
 router.get('/users/all', function(req, res, next) {
     try {
         models.User.findAll().then(function (users) {
-            res.json(users); // return all nerds in JSON format
+            res.json(users); // return all in JSON format
         });
     } catch (ex) {
         console.error("Internal error:" + ex);

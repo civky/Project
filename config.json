@@ -4,5 +4,5 @@
   "host": "localhost",
   "schema": "cati",
   "DBUser": "root",
-  "DBPassword": ""
+  "DBPassword": "toor"
 }

@@ -67,11 +67,15 @@ module.exports = function(passport) {
                     var newUserMysql = new Object();
 
                     newUserMysql.email    = email;
-                    newUserMysql.password = password; // FIXME: use the generateHash function in our user model
+                    //newUserMysql.password = newUserMysql.generateHash(password);
+                    newUserMysql.password = password;
+                    newUserMysql.admin = 0;
+                    // FIXME: use the generateHash function in our user model
 
                     models.User.create({
                         username: req.body.username,
                         password: password,
+                        admin: 0,
                         email: email
                     }).then(function (result) {
                         console.log(result);
@@ -113,4 +117,4 @@ module.exports = function(passport) {
             });
         }));
 
-}
+};

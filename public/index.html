@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SW CATI </title>
 
-    <title>Starter Node and Angular</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+    <!-- Theme CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
@@ -41,8 +49,8 @@
         <div ng-show="isLoggedIn">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/interview">Interviews</a></li>
+                <li><a ng-show="isLoggedIn" href="/users">Users</a></li>
+                <li><a ng-show="isLoggedIn" href="/interview">Interviews</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <button class="btn btn-default" ng-click="logout()" ng-show="isLoggedIn">Log out</button>

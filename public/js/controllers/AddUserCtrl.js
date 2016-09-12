@@ -1,11 +1,11 @@
 angular.module('AddUserCtrl', []).controller('AddUserController', ['$scope', 'UserService', '$location', function($scope, UserService, $location) {
 
-    $scope.tagline = 'This message comes from the controller';
+    $scope.tagline = 'Agregar un nuevo usuario';
     $scope.user = {
         username: "",
         password: "",
         email: "",
-        permission: ""
+        admin: ""
     };
 
     $scope.submit = function(){

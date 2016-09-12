@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({extended: true }));
 var fileUpload = require('express-fileupload');
 app.use(fileUpload());
 
-require('./server/router/routes')(app, passport)
+require('./server/router/routes')(app, passport);
 require('./server/passport/passport')(passport); // pass passport for configuration
 
 //Routes

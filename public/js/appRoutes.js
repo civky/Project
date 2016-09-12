@@ -2,7 +2,8 @@
  * does routing for angular.
  * tells angular which controller belongs to what view and on what route.
  */
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
+angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '$httpProvider',
+    function($routeProvider, $locationProvider, $httpProvider) {
 
 
     // Function with promise to check if user is logged in. Attach it to all views that needs permission to be viewed.
@@ -19,7 +20,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
             }
             // Not authenticated
             else{
-                $rootScope.message = 'You need to log in.';
+                $rootScope.message = 'Necesitas iniciar sesión';
                 $rootScope.isLoggedIn = false;
                 deferred.reject();
                 $location.url('/login');
@@ -27,6 +28,27 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
         });
         return deferred.promise;
     };
+        var checkLoggedinAdmin = function($q, $timeout, $http, $location, $rootScope){
+            // Initialize a new promise
+            var deferred = $q.defer();
+
+            // Make an AJAX call to check if the user is logged in
+            $http.get('/loggedin').success(function(user){
+                // Authenticated
+                if (user !== '0' && user.admin == true ){
+                    deferred.resolve();
+                    $rootScope.isLoggedIn = true;
+                }
+                // Not authenticated
+                else{
+                    $rootScope.message = 'Necesitas iniciar sesión';
+                    $rootScope.isLoggedIn = false;
+                    deferred.reject();
+                    $location.url('/adminLog');
+                }
+            });
+            return deferred.promise;
+        };
 
 
     $routeProvider
@@ -52,7 +74,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
             templateUrl: 'views/users.html',
             controller: 'UsersController',
             resolve: {
-                loggedin: checkLoggedin
+                loggedin: checkLoggedinAdmin
             }
         })
 
@@ -61,7 +83,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
             templateUrl: 'views/addUser.html',
             controller: 'AddUserController',
             resolve: {
-                loggedin: checkLoggedin
+                loggedin: checkLoggedinAdmin
             }
         })
     // edit user view
@@ -69,14 +91,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', '
             templateUrl: 'views/editUser.html',
             controller: 'EditUserController',
             resolve: {
-                loggedin: checkLoggedin
+                loggedin: checkLoggedinAdmin
             }
         })
         .when('/interview', {
             templateUrl: 'views/interview.html',
             controller: 'InterviewController',
             resolve: {
-                loggedin: checkLoggedin
+                loggedin: checkLoggedinAdmin
             }
         });
 

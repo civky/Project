@@ -8,7 +8,7 @@ A MySQL server running at localhost:3306.
 2. Perform the rest of the commands inside the project folder `cd Project`
 3. Install npm modules: `npm install`
 4. Install bower `npm install -g bower`
-5. Install bower dependencies `bower` (used for front-end: Angular, bootstrap etc.)
+5. Install bower dependencies: `bower install bootstrap` (used for front-end: Angular, bootstrap etc.)
 6. Edit `Project/config.json` with the **schema**, **user** and **password** for your MySQL database connection
 7. Start up the server: `node app.js`
 8. View in browser at [http://localhost:3000](http://localhost:3000)
